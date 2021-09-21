@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Search Movie
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+    <ion-searchbar placeholder="Search Movie"
+                   animated
+                   (ionChange)="onSearchChange($event)"
+                   [debounce]="700"
+                   showCancelButton="always"
+                   [value]="textSearch">
+    </ion-searchbar>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+
+    <ion-list *ngIf="movies.length === 0">
+        <ion-list-header>
+            <ion-label>Ideas</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let idea of ideas"
+                  button
+                  (click)="pasteToSearch(idea)">
+            <ion-label color="primary">{{idea}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+
+
+    <ion-grid fixed
+              *ngIf="!searchingMovies; else spinner">
+        <ion-row>
+            <ion-col size="6"
+                     *ngFor="let movie of movies">
+                <ion-card (click)="movieDetails(movie)">
+                    <img [src]="movie.poster_path | image">
+
+                    <ion-card-header>
+                        <ion-card-subtitle>{{movie.release_date}}</ion-card-subtitle>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <h2>{{movie.title}}</h2>
+                    </ion-card-content>
+                </ion-card>
+
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
+
+
+<ng-template #spinner>
+    <app-spinner></app-spinner>
+</ng-template>
