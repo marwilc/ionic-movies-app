@@ -43,8 +43,9 @@ export class SlideshowPosterComponent implements OnInit {
   constructor(private _modal: ModalController) {}
 
   ngOnInit() {
-    setTimeout(async () => {
+    let timer = setTimeout(async () => {
       await this.slides.update();
+      clearTimeout(timer);
     }, 1);
   }
 
