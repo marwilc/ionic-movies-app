@@ -59,6 +59,7 @@
               ]
             },
             "gh-pages": {
+              "baseHref": "/ionic-movies-app/",
               "outputPath": "docs",
               "fileReplacements": [
                 {
