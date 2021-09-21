@@ -18,9 +18,36 @@ export class DetailComponent implements OnInit, OnDestroy {
   favorites: Movie[] = [];
 
   slideOptions = {
-    slidesPerView: 3.3,
     freeMode: true,
-    spaceBetween: -5,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3.3,
+        spaceBetween: -5,
+      },
+      // when window width is >= 480px
+      425: {
+        slidesPerView: 4.3,
+        spaceBetween: -5,
+      },
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 7.3,
+        spaceBetween: -5,
+      },
+      1024: {
+        slidesPerView: 9.3,
+        spaceBetween: -5,
+      },
+      1440: {
+        slidesPerView: 14.3,
+        spaceBetween: -5,
+      },
+      2560: {
+        slidesPerView: 20.3,
+        spaceBetween: -5,
+      },
+    },
   };
 
   existsMovie = false;

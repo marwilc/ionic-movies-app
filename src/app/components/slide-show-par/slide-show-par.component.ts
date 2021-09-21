@@ -15,7 +15,35 @@ export class SlideShowParComponent implements OnInit {
   slideOpts = {
     slidesPerView: 3.3,
     freeMode: true,
-    spaceBetween: -10,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3.3,
+        spaceBetween: -10,
+      },
+      // when window width is >= 480px
+      425: {
+        slidesPerView: 4.3,
+        spaceBetween: -10,
+      },
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 7.3,
+        spaceBetween: -10,
+      },
+      1024: {
+        slidesPerView: 9.3,
+        spaceBetween: -10,
+      },
+      1440: {
+        slidesPerView: 14.3,
+        spaceBetween: -10,
+      },
+      2560: {
+        slidesPerView: 20.3,
+        spaceBetween: -10,
+      },
+    },
   };
 
   constructor(private _modal: ModalController) {}

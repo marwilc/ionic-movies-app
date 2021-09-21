@@ -3,16 +3,16 @@
         <h1>{{movie?.title}}</h1>
     </ion-label>
 
-    <img [src]="movie.backdrop_path | image"
-         *ngIf="movie">
+    <img [src]="movie?.backdrop_path | image: 'original'"
+         class="cover">
 
     <ion-grid>
         <ion-row>
             <ion-col size="4"
                      class="poster-detalle-sobre">
                 <ion-card class="poster">
-                    <img [src]="movie.poster_path | image"
-                         *ngIf="movie">
+                    <img [src]="movie?.poster_path | image"
+                         [ngStyle]="{'height': '160px'}">
                 </ion-card>
 
             </ion-col>
