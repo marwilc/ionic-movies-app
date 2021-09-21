@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonSlides, ModalController } from '@ionic/angular';
 import { Movie } from 'src/app/interfaces/interfaces';
 import { DetailComponent } from '../detail/detail.component';
 
@@ -10,6 +10,8 @@ import { DetailComponent } from '../detail/detail.component';
 })
 export class SlideshowPosterComponent implements OnInit {
   @Input() movies: Movie[] = [];
+
+  @ViewChild(IonSlides) slides: IonSlides;
 
   slideOpts = {
     freeMode: true,
@@ -40,7 +42,11 @@ export class SlideshowPosterComponent implements OnInit {
 
   constructor(private _modal: ModalController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout(async () => {
+      await this.slides.update();
+    }, 1);
+  }
 
   async showDetail(id: number) {
     const movieDetailModal = await this._modal.create({
