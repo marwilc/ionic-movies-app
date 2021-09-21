@@ -29,3 +29,23 @@
   width: 110px !important;
   height: 160px !important;
 }
+
+.ion-flex {
+  display: flex;
+}
+
+.w-24px {
+  width: 24px;
+}
+
+.h-24px {
+  height: 24px;
+}
+
+.ion-bg-none {
+  --background: transparent !important;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}

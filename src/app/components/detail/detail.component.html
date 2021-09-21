@@ -20,7 +20,8 @@
             <ion-col>
                 <ion-item>
                     <ion-icon slot="start"
-                              name="thumbs-up"></ion-icon>
+                              class="w-14px h-24px"
+                              src="/assets/like.svg"></ion-icon>
 
                     <ion-label>Rating</ion-label>
                     <ion-note slot="end"
@@ -30,7 +31,8 @@
 
                 <ion-item>
                     <ion-icon slot="start"
-                              name="person"></ion-icon>
+                              class="w-14px h-24px"
+                              src="/assets/user.svg"></ion-icon>
 
                     <ion-label>Votes</ion-label>
                     <ion-note slot="end"
@@ -90,18 +92,21 @@
 <ion-footer class="ion-no-border">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-button (click)="back()">
+            <ion-button (click)="back()"
+                        color="primary">
                 <ion-icon slot="start"
-                          name="arrow-back-circle-outline"></ion-icon>
+                          class="w-24px h-24px"
+                          src="/assets/reply-message.svg"></ion-icon>
                 <ion-label>back</ion-label>
             </ion-button>
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-button (click)="favorite()">
-                <ion-label>Favorite</ion-label>
+            <ion-button (click)="favorite()"
+                        color="primary">
+                <ion-label>{{existsMovie ? 'Remove' : 'Favorite'}}</ion-label>
                 <ion-icon slot="end"
-                          [name]="existsMovie ? 'star' : 'star-outline'"></ion-icon>
+                          [src]="existsMovie ? '/assets/favorite.svg' : '/assets/star.svg'"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
